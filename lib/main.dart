@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:youssef_test/features/contact/cubit/contact_cubit.dart';
 import 'package:youssef_test/features/contact/ui/contact_screen.dart';
 
 void main() {
@@ -11,9 +13,13 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      home: ContactScreen(),
+    return BlocProvider(
+      create: (context)=>ContactCubit(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Demo',
+        home: ContactScreen(),
+      ),
     );
   }
 }
